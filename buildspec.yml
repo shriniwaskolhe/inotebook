@@ -9,7 +9,7 @@ phases:
       - cd client
       - ls -la
       - echo "Checking network connectivity..."
-      - ping -c 4 github.com || (echo "Network connectivity issue" && exit 1)
+      - curl -I https://github.com || (echo "Network connectivity issue" && exit 1)
       - echo "Network check complete. Configuring npm registry..."
       - npm config set registry https://registry.npmjs.org/
       - npm install
