@@ -11,7 +11,7 @@ services:
     restart: always
 
   inotebook:
-    container_name: inotebook
+    container_name: node_app
     build:
       context: ./server
       dockerfile: Dockerfile
