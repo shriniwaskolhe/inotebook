@@ -11,10 +11,10 @@ permissions:
       - directory
 hooks:
   AfterInstall:
-    - location: scripts/stop-containers.sh
+    - location: scripts/ApplicationStop.sh
       timeout: 300
       runas: root
   ApplicationStart:
-    - location: scripts/start-containers.sh
+    - location: scripts/ApplicationStart.sh
       timeout: 300
       runas: mubin
