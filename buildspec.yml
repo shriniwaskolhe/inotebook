@@ -1,4 +1,3 @@
-#vi buildspec.yml
 version: 0.2
 phases:
   install:
@@ -9,14 +8,15 @@ phases:
       - echo "the prebuild phase begins"
       - cd client
       - ls -la
+      - echo "Checking network connectivity..."
+      - ping -c 4 github.com || (echo "Network connectivity issue" && exit 1)
+      - echo "Network check complete. Configuring npm registry..."
+      - npm config set registry https://registry.npmjs.org/
       - npm install
   build:
     commands:
       - echo "the build phase begins"
-      # - echo `pwd`
       - npm run build
-      # - echo `ls -la`
-
   post_build:
     commands:
       - echo "the post build phase. navigating back to root path"
