@@ -3,5 +3,5 @@
 #!/bin/sh
 cd /home/mubin/devopspipeline
 
-docker-compose build
-docker-compose up -d
+docker-compose.yml build
+docker-compose.yml up -d

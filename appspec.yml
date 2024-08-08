@@ -13,7 +13,7 @@ hooks:
   AfterInstall:
     - location: scripts/ApplicationStop.sh
       timeout: 300
-      runas: root
+      runas: mubin #root
   ApplicationStart:
     - location: scripts/ApplicationStart.sh
       timeout: 300

@@ -31,5 +31,5 @@ artifacts:
     - client/**/*
     - nginx/*
     - scripts/*
-    - docker-compose.yaml
+    - docker-compose.yml
     - Dockerfile
