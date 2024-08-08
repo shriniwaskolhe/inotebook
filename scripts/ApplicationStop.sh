@@ -22,6 +22,6 @@ if ! docker info > /dev/null 2>&1; then
 fi
 
 # Stop and remove Docker containers
-sudo docker-compose.yml down || { echo "Failed to stop containers"; exit 1; }
+sudo docker-compose down || { echo "Failed to stop containers"; exit 1; }
 
 echo "Containers stopped successfully"
