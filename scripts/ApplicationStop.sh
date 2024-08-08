@@ -3,8 +3,8 @@
 # Ensure the script exits on any error
 set -e
 
-# Navigate to the correct directory
-cd /home/mubin/devopspipeline
+# Navigate to the directory containing the Docker Compose file
+cd /home/mubin/devopspipeline || { echo "Directory '/home/mubin/devopspipeline' not found"; exit 1; }
 
 # Ensure the nginx directory exists
 if [ ! -d "nginx" ]; then
@@ -13,7 +13,7 @@ if [ ! -d "nginx" ]; then
 fi
 
 # Copy build files to the nginx directory
-sudo cp -r build/* nginx/ || { echo "Failed to copy files to 'nginx' directory"; exit 1; }
+sudo cp -r /home/mubin/devopspipeline/build/* nginx/ || { echo "Failed to copy files to 'nginx' directory"; exit 1; }
 
 # Check if Docker is running and start it if necessary
 if ! docker info > /dev/null 2>&1; then
