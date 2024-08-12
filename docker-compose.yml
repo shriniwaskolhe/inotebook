@@ -35,4 +35,4 @@ services:
       - 27017:27017
 
 volumes:
- - /mongodbvolume:/data/db
+  mongo_volume:
