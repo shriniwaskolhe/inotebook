@@ -20,7 +20,7 @@ services:
     expose:
       - 3001
     ports:
-      - 3001:3001
+      - 3002:3001
     links:
       - mongo_db
 
