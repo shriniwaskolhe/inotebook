@@ -7,7 +7,7 @@ services:
       context: ./nginx
       dockerfile: Dockerfile
     ports:
-      - 8081:80
+      - 80:80
     restart: always
 
   inotebook:
@@ -20,7 +20,7 @@ services:
     expose:
       - 3001
     ports:
-      - 3002:3001
+      - 3001:3001
     links:
       - mongo_db
 
