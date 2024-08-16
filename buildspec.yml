@@ -33,3 +33,4 @@ artifacts:
     - scripts/*
     - docker-compose.yml
     - Dockerfile
+    - nginx.conf
