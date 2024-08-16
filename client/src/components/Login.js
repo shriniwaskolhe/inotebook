@@ -8,7 +8,7 @@ const Login = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://13.60.21.89:5000/api/auth/login", {
+        const response = await fetch("http://13.60.64.117:5000/api/auth/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
