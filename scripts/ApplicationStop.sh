@@ -9,7 +9,7 @@ cd /home/mubin/devopspipeline || { echo "Directory '/home/mubin/devopspipeline' 
 # Ensure the nginx directory exists
 if [ ! -d "nginx" ]; then
     echo "The target directory 'nginx' does not exist. Creating it..."
-    mkdir -p nginx || { echo "Failed to create 'nginx' directory"; exit 1; }
+    sudo mkdir -p nginx || { echo "Failed to create 'nginx' directory"; exit 1; }
 fi
 
 # Copy build files to the nginx directory
