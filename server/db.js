@@ -5,7 +5,7 @@ const path = require('path');
 const caPath = path.resolve(__dirname, 'global-bundle.pem');
 
 // AWS DocumentDB connection string
-const mongoURI = `mongodb://localhost:27017`;
+const mongoURI = `mongodb://mongo_db:27017/inotebook`;
 
 const connectToMongo = async () => {
     try {
