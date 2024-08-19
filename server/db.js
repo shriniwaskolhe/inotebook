@@ -1,23 +1,11 @@
 const mongoose = require('mongoose');
-const path = require('path');
 
-// Path to your global-bundle.pem file
-const caPath = path.resolve(__dirname, 'global-bundle.pem');
+const mongoURI = "mongodb://mongo_db:27017/inotebook"
 
-// AWS DocumentDB connection string
-const mongoURI = `mongodb://mongo_db:27017/inotebook`;
-
-const connectToMongo = async () => {
-    try {
-        await mongoose.connect(mongoURI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            tlsCAFile: caPath,
-        });
-        console.log("Connected to DocumentDB successfully");
-    } catch (error) {
-        console.error("Error connecting to DocumentDB:", error.message);
-    }
-};
+const connectToMongo = ()=>{
+    mongoose.connect(mongoURI, ()=>{
+        console.log("Connected to Mongo Successfully");
+    })
+}
 
 module.exports = connectToMongo;
