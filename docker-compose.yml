@@ -22,7 +22,7 @@ services:
       - 3001:3001
     links:
       - mongo_db
-      - backend
+      - server
 
   mongo_db:
     container_name: mongo_db
