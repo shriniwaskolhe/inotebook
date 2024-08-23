@@ -1,4 +1,3 @@
-#vi docker-compose.yml
 version: "3.3"
 services:
   nginx_app:
@@ -23,6 +22,7 @@ services:
       - 3001:3001
     links:
       - mongo_db
+      - backend
 
   mongo_db:
     container_name: mongo_db
@@ -33,6 +33,17 @@ services:
       - 27017
     ports:
       - 27017:27017
+
+  backend:
+    container_name: backend_service
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: npm start  # or the command to start your backend service
+    ports:
+      - 5000:5000
+    depends_on:
+      - mongo_db
 
 volumes:
   mongo_volume:
