@@ -34,12 +34,12 @@ services:
     ports:
       - 27017:27017
 
-  backend:
-    container_name: backend_service
+  server:
+    container_name: server_service
     build:
-      context: ./backend
+      context: ./server
       dockerfile: Dockerfile
-    command: npm start  # or the command to start your backend service
+    command: nodemon index.js  # or the command to start your backend service
     ports:
       - 5000:5000
     depends_on:
