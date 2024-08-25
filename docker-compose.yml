@@ -1,3 +1,4 @@
+#vi docker-compose.yml
 version: "3.3"
 services:
   nginx_app:
@@ -9,33 +10,29 @@ services:
       - 80:80
     restart: always
 
-  inotebook:
-    container_name: frontend
+  node_app:
+    container_name: node_app
     build:
-      context: ./client
+      context: ./server
       dockerfile: Dockerfile
+    command: npm start
+    restart: always
+    expose:
+      - 3001
     ports:
       - 3001:3001
-    restart: always
+    links:
+      - mongo_db
 
   mongo_db:
     container_name: mongo_db
     image: mongo
     volumes:
       - mongo_volume:/data/db
+    expose:
+      - 27017
     ports:
       - 27017:27017
-
-  server:
-    container_name: server_service
-    build:
-      context: ./server
-      dockerfile: Dockerfile
-    command: nodemon index.js
-    ports:
-      - 5000:5000
-    depends_on:
-      - mongo_db
 
 volumes:
   mongo_volume:
