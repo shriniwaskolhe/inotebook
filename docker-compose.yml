@@ -15,7 +15,7 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
-    command: nodemon "server\index.js"
+    command: npm start
     restart: always
     expose:
       - 3001
